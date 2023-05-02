@@ -1,2 +1,61 @@
-# XGBoost_credit_card
-Prediction of the deficit and risk of default on credit cards with XGBoost.
+# XGBoost for credit card deficit prediction.
+Prediction of the deficit and risk of default on credit cards with XGBoost. In this project, a dataset with information related to the credit cards of clients of a Taiwanese bank will be used.
+
+https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset
+
+## Content
+
+There are 25 variables:
+
+    ID: ID of each client
+    LIMIT_BAL: Amount of given credit in NT dollars (includes individual and family/supplementary credit
+    SEX: Gender (1=male, 2=female)
+    EDUCATION: (1=graduate school, 2=university, 3=high school, 4=others, 5=unknown, 6=unknown)
+    MARRIAGE: Marital status (1=married, 2=single, 3=others)
+    AGE: Age in years
+    PAY_0: Repayment status in September, 2005 (-1=pay duly, 1=payment delay for one month, 2=payment delay for two months, … 8=payment delay for eight months, 9=payment delay for nine months and above)
+    PAY_2: Repayment status in August, 2005 (scale same as above)
+    PAY_3: Repayment status in July, 2005 (scale same as above)
+    PAY_4: Repayment status in June, 2005 (scale same as above)
+    PAY_5: Repayment status in May, 2005 (scale same as above)
+    PAY_6: Repayment status in April, 2005 (scale same as above)
+    
+    BILL_AMT1: Amount of bill statement in September, 2005 (NT dollar)
+    BILL_AMT2: Amount of bill statement in August, 2005 (NT dollar)
+    BILL_AMT3: Amount of bill statement in July, 2005 (NT dollar)
+    BILL_AMT4: Amount of bill statement in June, 2005 (NT dollar)
+    BILL_AMT5: Amount of bill statement in May, 2005 (NT dollar)
+    BILL_AMT6: Amount of bill statement in April, 2005 (NT dollar)
+    
+    PAY_AMT1: Amount of previous payment in September, 2005 (NT dollar)
+    PAY_AMT2: Amount of previous payment in August, 2005 (NT dollar)
+    PAY_AMT3: Amount of previous payment in July, 2005 (NT dollar)
+    PAY_AMT4: Amount of previous payment in June, 2005 (NT dollar)
+    PAY_AMT5: Amount of previous payment in May, 2005 (NT dollar)
+    PAY_AMT6: Amount of previous payment in April, 2005 (NT dollar)
+    
+    default.payment.next.month: Default payment (1=yes, 0=no)
+
+## Variable Heat Map
+
+![heatmap](https://user-images.githubusercontent.com/92114788/235670469-6fc97a22-9ac0-49ca-982d-2a3ad32894d9.png)
+
+## Kernel Density Estimation of credit limits for those who pay and defaulters.
+
+![KDE](https://user-images.githubusercontent.com/92114788/235672153-fc859eef-6a0d-4ebb-ba6b-c3a577a77e12.png)
+
+## KPIs and prediction results with XGBoost
+
+**confusion matrix**
+
+![confusion_matrix](https://user-images.githubusercontent.com/92114788/235673922-32b0cecb-9cfc-471e-8d32-b9ed869177cd.png)
+
+
+              precision    recall  f1-score   support
+
+           0       0.84      0.96      0.89      5812
+           1       0.70      0.36      0.48      1688
+
+    accuracy                           0.82      7500
+
+Note: these results can be drastically improved with the proper choice of hyperparameters (there are over 40 in an XGBoost model! This means millions of possible combinations)
